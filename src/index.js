@@ -1,13 +1,25 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import reportWebVitals from "./reportWebVitals";
+import App from "./App";
+import AuthContextProvider from "./context/AuthContext";
+import AlertTemplate from "./config/AlertStyle";
+import { Provider as AlertProvider } from "react-alert";
+import { auth0Config } from "./config/Auth0";
+import { Auth0Provider } from "@auth0/auth0-react";
+import { AlertsConfig } from './config/AlertConfig';
+import "./index.css"
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <AlertProvider template={AlertTemplate} {...AlertsConfig}>
+      <Auth0Provider {...auth0Config}>
+        <AuthContextProvider>
+          <App />
+        </AuthContextProvider>
+      </Auth0Provider>
+    </AlertProvider>
   </React.StrictMode>
 );
 

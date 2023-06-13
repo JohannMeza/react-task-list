@@ -1,0 +1,11 @@
+{
+  "name": "functions8Base",
+  "version": "1.0.0",
+  "description": "8base Custom Logic",
+  "dependencies": {
+    "8base-cli-types": "^0.3.3",
+    "8base-sdk": "^1.6.2",
+    "graphql-request": "^1.6.0",
+    "path": "^0.12.7"
+  }
+}
